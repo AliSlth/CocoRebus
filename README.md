@@ -172,10 +172,10 @@ Il y a plusieurs fonctions qui capture des éléments spécifiques et permettent
 * ```regex = /(?:<text>)([\s\S]*?)(?:<\/text>)/;``` Capture les éléments entre les balises <text>
 * ```regex = /(?:<teiheader>)([\s\S]*?)(?:<\/teiheader>)/;``` Capture les éléments entre les balises <teiHeader>
 * ```regex = /(?:<back>)([\s\S]*?)(?:<\/back>)/g;```  Capture les éléments entre les balises <back>
-* ```regex = /(?<!<mod type="del" seq="T1" resp="E">)<del>(.*?)<\/del>/g;``` Regex qui capture les balises <del> qui ne sont pas entourées de <mod type="del" seq="T1" resp="E">
-* ```regex = /(?:<add>|<reg>)(.*?)(?:<\/add>|<\/reg>)/g;``` Capturer les ajouts et interventions chercheurs
-*  ```regex = /<(?:reg)>(.*?)<\/(?:reg)>/g;``` Capture les interventions des chercheurs
-*  ```regex = /((<[^<>]*resp="P"[^<>]*>(.*?)<\/[^<>]*>)|(?:<mod type="subst" resp="E" seq="T1">)(.*?)(?:<\/mod>)|(?:<back>)([\s\S]*?)(?:<\/back>))/g```  Capture
+* ```regex = /(?<!<mod type="del" seq="T1" resp="E">)<del>(.*?)<\/del>/g;``` Regex qui capture les balises <del> sauf celles qui ne sont pas entourées de <mod type="del" seq="T1" resp="E">
+* ```regex = /(?:<add>|<reg>)(.*?)(?:<\/add>|<\/reg>)/g;``` Capturer les ajouts et interventions chercheurs = entre les balises <add> ou <reg>
+*  ```regex = /<(?:reg)>(.*?)<\/(?:reg)>/g;``` Capture les interventions des chercheurs entre <reg>
+*  ```regex = /((<[^<>]*resp="P"[^<>]*>(.*?)<\/[^<>]*>)|(?:<mod type="subst" resp="E" seq="T1">)(.*?)(?:<\/mod>)|(?:<back>)([\s\S]*?)(?:<\/back>))/g```     Capture les balises dont le resp = P + celles de type <mod type = "subst"...>
 
 
 
@@ -189,6 +189,20 @@ Il y a plusieurs fonctions qui capture des éléments spécifiques et permettent
 * function ```highlightP()``` met en valeur les ajouts des professeurs avec ```<span style="color: red;">```
 * function ```highlightCher()``` met en valeur les interventions des chercheurs ```<span style="color: yellow;">```
 * function ```highlightProfCher()```  met en valeur les interventions des chercheurs et des chercheurs ```<span style="color: yellow;">```
+
+
+** Selon l'affichage voulu, les fonctions sont apliquées :**
+Par exemple : 
+```
+   function displayV1() {
+        resetText();
+        hideTeiHeader();
+        removeDelTags();
+        hideBack();
+        hideAddReg();
+    }
+```
+Ici, on cache les éléments entre <teiHeader>, on enlève les éléments <del> du professeur et les commentaires entre <back> ainsi que les interventions chercheurs = laisse la version 1 
 
 #### Autre
 ### Retour arrière vers la page de consultation (utilisateur connecté) ou d'accueil (si non connecté)
