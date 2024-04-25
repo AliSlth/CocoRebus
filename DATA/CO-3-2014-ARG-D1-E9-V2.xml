@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF8'?>
+<?xml-stylesheet type="text/xsl" href="operations.xsl"?><!DOCTYPE TEI SYSTEM "../../normes.dtd">
+<TEI>
+ <teiHeader>
+ <fileDesc>
+  <titleStmt>
+    <title>CO-3-2014-ARG-D1-E9-V2</title>
+    <respStmt>
+      <resp>récupération du fichier au format texte</resp>
+      <persName>Les transcripteurs : ...</persName>
+    </respStmt>
+    <respStmt>
+      <resp>création du header</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+    <respStmt>
+      <resp>pretraitement et balisage du texte selon la TEI P5</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+  </titleStmt>
+  <publicationStmt>
+    <publisher>
+      <orgName>CLESTHIA</orgName>
+      <address>CLESTHIA ... ...</address>
+    </publisher>
+    <availability>
+      <licence target="https://creativecommons.org/licenses/by-sa/3.0/legalcode.fr">
+        <desc>Ce fichier numérique est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0 France (http://creativecommons.org/licenses/by-nc-sa/3.0/fr)</desc>
+        <desc>Autorisation parentale signée en 2014</desc>
+      </licence>
+    </availability>
+  </publicationStmt>
+  <sourceDesc>
+    <bibl>ECRISCOL (http://www.univ-paris3.fr/ecriscol)</bibl>
+  </sourceDesc>
+</fileDesc>
+ <encodingDesc>
+  <projectDesc>
+ECRISCOL
+Le projet de recherche ECRISCOL est centré sur l’analyse des écrits produits en situation scolaire. Il s’agit de faire le rapport entre des traits caractéristiques de ces écrits et des situations d’apprentissage et d’enseignement suscitant leur production, de manière à faire apparaître des dispositifs didactiques favorisant certains types d'écrits et certaines stratégies ou procédures d'écriture.
+objectif : cf http://www.univ-paris3.fr/ecriscol-300509.kjsp
+encodage des textes selon la norme de la Text Encoding Initiative, TEIP5
+http://www.tei-c.org/release/doc/tei-p5-doc
+</projectDesc>
+</encodingDesc>
+ <profileDesc>
+  <langUsage>
+    <language ident="fr">french</language>
+  </langUsage>
+  <particDesc>
+    <listPerson>
+      <person xml:id="W1"/>
+    </listPerson>
+  </particDesc>
+  <settingDesc>
+    <setting>
+      <placeName/>
+      <date>31/03/2016</date>
+      <locale xml:lang="fr" n="3"/>
+      <locale xml:lang="en" n="9"/>
+      <activity/>
+    </setting>
+  </settingDesc>
+  <textDesc n="schoolwork">
+    <channel mode="w"/>
+    <constitution type="single"/>
+    <derivation/>
+    <domain type="education"/>
+    <factuality/>
+    <interaction type="none"/>
+    <preparedness/>
+    <purpose/>
+  </textDesc>
+</profileDesc>
+ </teiHeader>
+ <text>
+<front>
+</front>
+<body><p>
+<span xml:id="C1" to="#endC1"/>Quand je sors la tête puis les <mod type="corr" cat="graph" resp="chercheur"><orig>restes</orig><reg>reste</reg></mod> de mon<lb/> corps<anchor xml:id="endC1"/>, je pousse un cri<mod type="del" resp="P" seq="T2"><del>e</del></mod>. La sage<mod type="subst" seq="T2" resp="P"><del> </del><add>-</add></mod>femme me<lb/> <span xml:id="C2" to="#endC2"/><mod type="corr" cat="graph" resp="chercheur"><orig>pause</orig><reg>pose</reg></mod><anchor xml:id="endC2"/> sur le ventre de ma mère, <mod type="del" seq="T2" resp="P"><del>elle</del></mod> qui <lb/>pleure de joie. Pour la première fois j'ouvr<mod resp="E" seq="T1" type="subst"><del>ai</del><add>e</add></mod><lb/>
+mes <span xml:id="C9" to="#endC9"/>yeux<anchor xml:id="endC9"/>, j'ai l'impression que mes <span xml:id="C10" to="#endC10"/>yeux<anchor xml:id="endC10"/> se <lb/>déchir<span xml:id="C3" to="#endC3"/>e<anchor xml:id="endC3"/>. Je suis à la fois content de pouvoir<lb/>
+les <mod type="corr" cat="graph" resp="chercheur"><orig>ouvrir<mod resp="P" seq="T2" type="del"><del>e</del></mod></orig><reg>ouvrir</reg></mod> et à la fois non car <mod type="corr" cat="seg" resp="chercheur"><orig>ilya</orig><reg>il y a</reg></mod> une <lb/> <mod type="corr" cat="phon" resp="chercheur"><orig>lumiere</orig><reg>lumière</reg></mod> intense <mod type="corr" cat="seg" resp="chercheur"><orig>etun</orig><reg>et un</reg></mod> petit air<mod type="del" seq="T2" resp="P"><del>e</del></mod> frais. La <mod type="corr" cat="seg" resp="chercheur"><orig>sage<lb/>
+femme</orig><reg>sage-femme</reg></mod> me coupe le cordon <mod type="subst" resp="P" seq="T2"><del>obilical</del><add>ombilical</add></mod> et me<lb/>
+couvre avec une couverture. Il y <span xml:id="C4" to="#endC4"/>avai<mod type="subst" resp="P" seq="T2"><del>s</del><add>t</add></mod><anchor xml:id="endC4"/> mon<lb/>
+<mod type="del" seq="T1" resp="E"><del>pel</del></mod> père qui me <mod type="corr" cat="phon" resp="chercheur"><orig>regar<span xml:id="C5" to="#endC5"/>de<anchor xml:id="endC5"/></orig><reg>regardait</reg></mod> avec <span xml:id="C6" to="#endC6"/>des yeux<anchor xml:id="endC6"/> qui<lb/>
+peti<span xml:id="C7" to="#endC7"/>lle<anchor xml:id="endC7"/> qui expri<span xml:id="C8" to="#endC8"/>me<anchor xml:id="endC8"/> de la joie et beaucoup<lb/>
+<mod type="corr" cat="seg" resp="chercheur"><orig>démotion</orig><reg>d'émotion</reg></mod><lb/>
+</p>
+</body>
+<back>
+	<note seq="T2" resp="P" rend="underline" target="#C1">Très mal exprimé</note>
+	<note seq="T2" resp="P" rend="underline" target="#C2">"poser"</note>
+	<note seq="T2" resp="P" rend="underline" target="#C3">Problème: <lb/>sujet au singulier<lb/> et verbe au pluriel</note>
+	<note seq="T2" resp="P" rend="underline" target="#C4">attention à <mod resp="P" seq="T2" type="del"><del>garder</del></mod><lb/>la concordance des temps</note>
+	<note seq="T2" resp="P" rend="underline" target="#C5">attention à <lb/>la concordance des temps</note>
+	<note seq="T2" resp="P" rend="underline" target="#C6">problème <lb/>d'accord</note>
+	<note seq="T2" resp="P" rend="underline" target="#C7"> </note>
+	<note seq="T2" resp="P" rend="underline" target="#C8"> </note>
+	<note seq="T2" resp="P" rend="underline" target="#C9"/>
+	<note seq="T2" resp="P" rend="underline" target="#C10"/>
+	<metamark seq="T2" resp="P">On ne retrouve pas tous les éléments <lb/>attendus à la fin du texte de base.</metamark>
+</back>
+</text>
+</TEI>

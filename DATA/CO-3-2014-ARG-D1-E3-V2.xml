@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF8'?>
+<?xml-stylesheet type="text/xsl" href="operations.xsl"?><!DOCTYPE TEI SYSTEM "../../normes.dtd">
+<TEI>
+ <teiHeader>
+ <fileDesc>
+  <titleStmt>
+    <title>CO-3-2014-ARG-D1-E3-V2</title>
+    <respStmt>
+      <resp>récupération du fichier au format texte</resp>
+      <persName>Les transcripteurs : ...</persName>
+    </respStmt>
+    <respStmt>
+      <resp>création du header</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+    <respStmt>
+      <resp>pretraitement et balisage du texte selon la TEI P5</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+  </titleStmt>
+  <publicationStmt>
+    <publisher>
+      <orgName>CLESTHIA</orgName>
+      <address>CLESTHIA ... ...</address>
+    </publisher>
+    <availability>
+      <licence target="https://creativecommons.org/licenses/by-sa/3.0/legalcode.fr">
+        <desc>Ce fichier numérique est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0 France (http://creativecommons.org/licenses/by-nc-sa/3.0/fr)</desc>
+        <desc>Autorisation parentale signée en 2014</desc>
+      </licence>
+    </availability>
+  </publicationStmt>
+  <sourceDesc>
+    <bibl>ECRISCOL (http://www.univ-paris3.fr/ecriscol)</bibl>
+  </sourceDesc>
+</fileDesc>
+ <encodingDesc>
+  <projectDesc>
+ECRISCOL
+Le projet de recherche ECRISCOL est centré sur l’analyse des écrits produits en situation scolaire. Il s’agit de faire le rapport entre des traits caractéristiques de ces écrits et des situations d’apprentissage et d’enseignement suscitant leur production, de manière à faire apparaître des dispositifs didactiques favorisant certains types d'écrits et certaines stratégies ou procédures d'écriture.
+objectif : cf http://www.univ-paris3.fr/ecriscol-300509.kjsp
+encodage des textes selon la norme de la Text Encoding Initiative, TEIP5
+http://www.tei-c.org/release/doc/tei-p5-doc
+</projectDesc>
+</encodingDesc>
+ <profileDesc>
+  <langUsage>
+    <language ident="fr">french</language>
+  </langUsage>
+  <particDesc>
+    <listPerson>
+      <person xml:id="W1"/>
+    </listPerson>
+  </particDesc>
+  <settingDesc>
+    <setting>
+      <placeName/>
+      <date>31/03/2016</date>
+      <locale xml:lang="fr" n="3"/>
+      <locale xml:lang="en" n="9"/>
+      <activity/>
+    </setting>
+  </settingDesc>
+  <textDesc n="schoolwork">
+    <channel mode="w"/>
+    <constitution type="single"/>
+    <derivation/>
+    <domain type="education"/>
+    <factuality/>
+    <interaction type="none"/>
+    <preparedness/>
+    <purpose/>
+  </textDesc>
+</profileDesc>
+ </teiHeader>
+ <text>
+<front>
+</front>
+<body><p>
+Je suis sorti<mod type="del" seq="T2" resp="P"><del>e</del></mod> du corps de <span xml:id="C1" to="#endC1"/>ma mère quand, j'avais <lb/>
+vu, entendu,<anchor xml:id="endC1"/> plein<mod type="del" seq="T2" resp="P"><del>s</del></mod> de choses. Ma mère m'avait pri<mod type="subst" resp="E" seq="T1"><del>t</del><add>s</add></mod><lb/>
+dans ses bras. J'avais ressenti de la joie, j'étais<lb/>
+heureux, jusqu'<mod type="subst" resp="E" seq="T1"><del>a</del><add>à</add></mod> <mod type="del" seq="T2" resp="P"><del>c</del></mod>que ma mère perdit conscience.<lb/>
+<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>j'</orig><reg>J'</reg></mod>avais <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>eus</orig><reg>eu</reg></mod> très peur. "<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>ma</orig><reg>Ma</reg></mod> mère inconsciente". Puis<lb/>
+les médecins m'<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>avais</orig><reg>avaient</reg></mod> emmen<mod type="subst" resp="E" seq="T1"><del>er</del><add>é</add></mod> dans une salle. <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>j'</orig><reg>J'</reg></mod>avais très<lb/> 
+peur pour ma mère, je ne s<mod type="del" seq="T2" resp="P"><del>'</del></mod>avais pas si elle allai<mod type="subst" resp="E" seq="T1"><del>s</del><add>t</add></mod><lb/>
+se <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>réveillé<mod type="subst" resp="E" seq="T1"><del>e</del><add>r</add></mod></orig><reg>réveiller</reg></mod>. Soudain un médecin m'avai<mod type="subst" resp="E" seq="T1"><del>s</del><add>t</add></mod> emmen<mod type="subst" resp="E" seq="T1"><del>er</del><add>é</add></mod> auprès<lb/>
+de ma mère. Je me sentais bien dans ma peau. <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>j'</orig><reg>J'</reg></mod>etais<lb/>
+heureux de vivre. Sans doute c'etait un bonheur pour moi, un<lb/>
+<span xml:id="C3" to="#endC3"/>bonheur égoiste<anchor xml:id="endC3"/> Un jour en me réveillant, j'avais des <lb/>
+<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>douleur</orig><reg>douleurs</reg></mod>, une douleur si forte que je fermai les yeux, j'étais<lb/>
+<span xml:id="C4" to="#endC4"/>incapable  de faire quoi que <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>se</orig><reg>ce</reg></mod> soit.<anchor xml:id="endC4"/> Je <mod type="corr" cat="phon" resp="chercheur" seq="post"><orig>pleur<mod type="del" seq="T2" resp="P"><del>é</del></mod></orig><reg>pleurais</reg></mod> je <mod type="corr" cat="phon" resp="chercheur" seq="post"><orig>souff<mod type="del" seq="T2" resp="P"><del>ée</del></mod></orig><reg>souffrais</reg></mod>, je<lb/> 
+ne pouvais plus rien faire. Un moment la douleur fut si forte que<lb/> 
+j'avais cru perdre la raison et soudain plus rien. Plus de<lb/>
+douleur insu<mod type="add" seq="T2" resp="P"><add>p</add></mod>portable, rien de cela j'avais de la joie en moi.<lb/>
+Puis le jour <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>ou</orig><reg>où</reg></mod> je devais <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>rentrée</orig><reg>rentrer</reg></mod> chez moi avec ma<lb/>
+famille, les médecins, m'<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>avai<mod type="del" seq="T2" resp="P"><del>s</del></mod></orig><reg>avaient</reg></mod> <mod type="del" seq="T1" resp="E"><del>donne</del></mod> fait un cadeau<lb/>
+merveilleux.<lb/><span xml:id="C5" to="#endC5"/> <anchor xml:id="endC5"/></p>
+
+</body>
+<back>
+	<note seq="T2" resp="P" target="#C1">très mal dit</note>
+	<note seq="T2" resp="P" target="#C3">B.</note>
+	<note seq="T2" resp="P" target="#C4">oui</note>
+	<note seq="T2" resp="P" target="#C5">
+		De bonnes formulations et des <lb/> 
+		passages plus passables. <lb/>
+		On retrouve l'essentiel des éléments <lb/>
+		attendus du texte de départ.
+	</note>
+</back></text>
+</TEI>

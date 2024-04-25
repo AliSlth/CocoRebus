@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF8'?>
+<?xml-stylesheet type="text/xsl" href="operations.xsl"?><!DOCTYPE TEI SYSTEM "../../normes.dtd">
+<TEI>
+ <teiHeader>
+ <fileDesc>
+  <titleStmt>
+    <title>EC-CE1-2014-ABZ1-D1-E1-V2</title>
+    <respStmt>
+      <resp>récupération du fichier au format texte</resp>
+      <persName>Les transcripteurs : ...</persName>
+    </respStmt>
+    <respStmt>
+      <resp>création du header</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+    <respStmt>
+      <resp>pretraitement et balisage du texte selon la TEI P5</resp>
+      <persName>Serge Fleury</persName>
+    </respStmt>
+  </titleStmt>
+  <publicationStmt>
+    <publisher>
+      <orgName>CLESTHIA</orgName>
+      <address>CLESTHIA ... ...</address>
+    </publisher>
+    <availability>
+      <licence target="https://creativecommons.org/licenses/by-sa/3.0/legalcode.fr">
+        <desc>Ce fichier numérique est mis à disposition selon les termes de la licence Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0 France (http://creativecommons.org/licenses/by-nc-sa/3.0/fr)</desc>
+        <desc>Autorisation parentale signée en 2014</desc>
+      </licence>
+    </availability>
+  </publicationStmt>
+  <sourceDesc>
+    <bibl>ECRISCOL (http://www.univ-paris3.fr/ecriscol)</bibl>
+  </sourceDesc>
+</fileDesc>
+ <encodingDesc>
+  <projectDesc>
+ECRISCOL
+Le projet de recherche ECRISCOL est centré sur l’analyse des écrits produits en situation scolaire. Il s’agit de faire le rapport entre des traits caractéristiques de ces écrits et des situations d’apprentissage et d’enseignement suscitant leur production, de manière à faire apparaître des dispositifs didactiques favorisant certains types d'écrits et certaines stratégies ou procédures d'écriture.
+objectif : cf http://www.univ-paris3.fr/ecriscol-300509.kjsp
+encodage des textes selon la norme de la Text Encoding Initiative, TEIP5
+http://www.tei-c.org/release/doc/tei-p5-doc
+</projectDesc>
+</encodingDesc>
+ <profileDesc>
+  <langUsage>
+    <language ident="fr">french</language>
+  </langUsage>
+  <particDesc>
+    <listPerson>
+      <person xml:id="W1"/>
+    </listPerson>
+  </particDesc>
+  <settingDesc>
+    <setting>
+      <placeName/>
+      <date>31/03/2016</date>
+      <locale xml:lang="fr" n="CE1"/>
+      <locale xml:lang="en" n="2"/>
+      <activity/>
+    </setting>
+  </settingDesc>
+  <textDesc n="schoolwork">
+    <channel mode="w"/>
+    <constitution type="single"/>
+    <derivation/>
+    <domain type="education"/>
+    <factuality/>
+    <interaction type="none"/>
+    <preparedness/>
+    <purpose/>
+  </textDesc>
+</profileDesc>
+ </teiHeader>
+ <text>
+<front>
+</front>
+<body><p>
+Alors Porculus décida de <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>alé</orig><reg>aller</reg></mod><lb/>
+voir dans la <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>forai</orig><reg>forêt</reg></mod> et il <mod type="corr" cat="seg" resp="chercheur" seq="post"><orig>avu</orig><reg>a vu</reg></mod><lb/>
+un petit cochon il <mod type="corr" cat="graph;seg" resp="chercheur" seq="post"><orig>sapelé</orig><reg>s'appelait</reg></mod><lb/>
+<mod type="del" seq="T1" resp="E"><del>loo</del></mod> locs <mod type="del" seq="T1" resp="E"><del>u</del></mod> et il <mod type="del" seq="T1" resp="E"><del>fini</del></mod><lb/>
+<mod type="del" seq="T1" resp="E"><del>decis</del></mod> <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>decida</orig><reg>décida</reg></mod> de <mod type="corr" cat="graph;phon" resp="chercheur" seq="post"><orig>raité</orig><reg>rester</reg></mod><lb/>
+dans la <mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>foré</orig><reg>forêt</reg></mod> avec son<lb/>
+<mod type="corr" cat="graph" resp="chercheur" seq="post"><orig>copin</orig><reg>copain</reg></mod><lb/>
+</p>
+</body>
+<back/></text>
+</TEI>

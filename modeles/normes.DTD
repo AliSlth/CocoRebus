@@ -1,0 +1,112 @@
+<!ELEMENT TEI (teiHeader, text)>
+	<!ELEMENT teiHeader (fileDesc, encodingDesc, profileDesc)>
+		<!ELEMENT fileDesc (titleStmt, publicationStmt, sourceDesc)>
+			<!ELEMENT titleStmt (title, respStmt+)>
+				<!ELEMENT title (#PCDATA)>
+				<!ELEMENT respStmt (resp, persName+)>
+					<!ELEMENT resp (#PCDATA)>
+					<!ELEMENT persName (#PCDATA)>
+			<!ELEMENT publicationStmt (publisher, availability)>
+				<!ELEMENT publisher (orgName, address?)>
+					<!ELEMENT orgName (#PCDATA)>
+					<!ELEMENT address (street?, postCode?, settlement?)>
+						<!ELEMENT street (#PCDATA)>
+						<!ELEMENT postCode (#PCDATA)>
+						<!ELEMENT settlement (#PCDATA)>
+				<!ELEMENT availability (licence)>
+					<!ATTLIST availability status CDATA #FIXED "free">
+					<!ELEMENT licence (desc+)>
+						<!ATTLIST licence target CDATA #FIXED "https://creativecommons.org/licenses/by-sa/3.0/legalcode.fr">
+						<!ELEMENT desc (#PCDATA)>
+			<!ELEMENT sourceDesc (bibl?)>
+				<!ELEMENT bibl (#PCDATA | extent)*>
+					<!ELEMENT extent (#PCDATA)>
+		<!ELEMENT encodingDesc (projectDesc)>
+			<!ELEMENT projectDesc (#PCDATA)>
+		<!ELEMENT profileDesc (langUsage, particDesc, settingDesc, textDesc)>
+			<!ELEMENT langUsage (language)>
+				<!ELEMENT language (#PCDATA)>
+					<!ATTLIST language ident CDATA #FIXED "fr">
+			<!ELEMENT particDesc (listPerson)>
+				<!ELEMENT listPerson (person+)>
+					<!ELEMENT person (#PCDATA)>
+						<!ATTLIST person
+							age CDATA #IMPLIED
+							xml:id CDATA #REQUIRED
+							sex (F | H) #IMPLIED>
+			<!ELEMENT settingDesc (setting)>
+				<!ELEMENT setting (placeName?, date, locale, activity?)>
+					<!ELEMENT placeName (#PCDATA)>
+						<!ATTLIST placeName type CDATA #IMPLIED>
+					<!ELEMENT date (#PCDATA)>
+					<!ELEMENT locale (#PCDATA)>
+						<!ATTLIST locale n (CP | CE1 | CE2 | CM1 | CM2 | 6e | 5e | 4e | 3e | 2e | 1e | Tle | L1 | L2 | L3 | M1 | M2) #REQUIRED>
+					<!ELEMENT activity (#PCDATA)>
+			<!ELEMENT textDesc (channel, constitution, derivation, domain, factuality, interaction, preparedness, purpose+)>
+				<!ATTLIST textDesc n CDATA "schoolwork">
+				<!ELEMENT channel (#PCDATA)>
+					<!ATTLIST channel mode CDATA #FIXED "w">
+				<!ELEMENT constitution (#PCDATA)>
+					<!ATTLIST constitution type CDATA #FIXED "single">
+				<!ELEMENT derivation EMPTY>
+					<!ATTLIST derivation type (original | revision) #REQUIRED>
+				<!ELEMENT domain EMPTY>
+					<!ATTLIST domain type CDATA #FIXED "education">
+				<!ELEMENT factuality (#PCDATA)>
+					<!ATTLIST factuality type (fact | fiction | inapplicable | mixed) #REQUIRED>
+				<!ELEMENT interaction (#PCDATA)>
+					<!ATTLIST interaction type CDATA #FIXED "none">
+				<!ELEMENT preparedness EMPTY>
+					<!ATTLIST preparedness type (formulaic | none | revised | scripted) #REQUIRED>
+				<!ELEMENT purpose (#PCDATA)>
+					<!ATTLIST purpose
+						type (entertain | express | inform | persuade) #REQUIRED
+						degree (high | low | medium | unknown) #REQUIRED>
+	<!ELEMENT text (front?, body, back?)>
+		<!ELEMENT front (#PCDATA | metamark | p)*>
+			<!ELEMENT metamark (#PCDATA | figure | gap | hi | lb | mod | name | pb | surplus | unclear)*>
+				<!ATTLIST metamark
+					seq CDATA #IMPLIED
+					resp (E | P | transcripteur) #REQUIRED
+					rend (underline) #IMPLIED>
+				<!ELEMENT lb EMPTY>
+					<!ATTLIST lb rend (hyphen) #IMPLIED>
+				<!ELEMENT pb EMPTY>
+				<!ELEMENT gap EMPTY>
+				<!ELEMENT unclear (#PCDATA | lb)*>
+					<!ATTLIST unclear rend (hyphen) #IMPLIED>
+				<!ELEMENT hi (#PCDATA | lb | mod | unclear)*>
+					<!ATTLIST hi rend CDATA #REQUIRED>
+				<!ELEMENT figure EMPTY>
+				<!ELEMENT name EMPTY>
+				<!ELEMENT surplus (#PCDATA)>
+				<!ELEMENT mod (add | del | orig | reg | subst | mod)*>
+					<!ATTLIST mod
+						cat CDATA #IMPLIED
+						seq CDATA #REQUIRED
+						resp (E | P | chercheur) #REQUIRED
+						type (add | corr | del | subst) #REQUIRED>
+					<!ELEMENT add (#PCDATA | del | gap | hi | lb | mod | pb | subst | unclear)*>
+					<!ELEMENT del (#PCDATA | add | gap | hi | lb | mod | pb | subst | unclear)*>
+					<!ELEMENT orig (#PCDATA | add | gap | hi | lb | mod | pb | subst | unclear)*>
+					<!ELEMENT reg (#PCDATA | add | gap | hi | lb | mod | pb | subst | unclear)*>
+					<!ELEMENT subst (#PCDATA | add | del | gap | hi | lb | mod | pb | unclear)*>
+		<!ELEMENT body (head?, p+)>
+			<!ELEMENT head (#PCDATA | anchor | figure | gap | hi | lb | mod | name | pb | s | span | surplus | unclear)*>
+			<!ELEMENT p (#PCDATA | anchor | figure | gap | hi | lb | mod | name | pb | s | span | surplus | unclear)*>
+				<!ELEMENT span EMPTY>
+					<!ATTLIST span xml:id CDATA #REQUIRED>
+					<!ATTLIST span to CDATA #REQUIRED>
+				<!ELEMENT anchor EMPTY>
+					<!ATTLIST anchor xml:id CDATA #REQUIRED>
+				<!ELEMENT s (#PCDATA)>
+					<!ATTLIST s type CDATA #REQUIRED>
+					<!ATTLIST s rend CDATA #REQUIRED>
+					<!ATTLIST s n CDATA #REQUIRED>
+		<!ELEMENT back (#PCDATA | metamark | note | p)*>
+			<!ELEMENT note (#PCDATA)>
+				<!ATTLIST note place CDATA #IMPLIED>
+				<!ATTLIST note rend CDATA #IMPLIED>
+				<!ATTLIST note resp CDATA #FIXED "P">
+				<!ATTLIST note seq CDATA #REQUIRED>
+				<!ATTLIST note target CDATA #REQUIRED>
