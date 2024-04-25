@@ -199,3 +199,7 @@ Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec
 Zoomer sur l'image 
 Connexion à la base de données
 
+#### Améliorations
+
+* Pour la partie d'options d'affichage sur textes : afficher les commentaires à l'endroit où il a été réellement ajouté sur la copie
+
