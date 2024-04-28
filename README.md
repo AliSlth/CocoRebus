@@ -1,7 +1,8 @@
 # Projet CocoRebus
 
 Groupe : DU Xinyi et SOUNALATH Alissa
-Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP au lycée, comprenant des scans de copies accompagnés de transcriptions au format XML-TEI. 
+Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP au lycée, comprenant des scans de copies accompagnés de transcriptions au format XML-TEI.
+
 ## Fonctionnalités disponibles
 
 #### Page d'accueil
