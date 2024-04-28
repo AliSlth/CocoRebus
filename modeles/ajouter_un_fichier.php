@@ -1,96 +1,110 @@
 <?php
-// Fonction pour valider le XML par rapport au DTD
-function xml_validate_against_dtd($xmlContent)
+// Fonction pour valider XML par rapport au DTD
+function xml_valider_contre_dtd($xmlContenu)
 {
-    // Chemin vers le fichier DTD
-    $dtdFile = 'normes.DTD'; // Remplacez cela par le chemin vers votre fichier DTD
-
-    // Créer un document DOM pour le XML
+    // Créer un objet DOMDocument
     $doc = new DOMDocument();
 
-    // Activer la gestion des erreurs XML
+    // Charger le contenu XML dans DOMDocument
+    if (!$doc->loadXML($xmlContenu)) {
+        return "Échec du chargement du contenu XML.";
+    }
+
+    // Chemin vers le fichier DTD
+    $dtdFichier = "../normes.DTD";
+
+    // Activer la gestion des erreurs internes
     libxml_use_internal_errors(true);
 
-    // Charger le fichier XML
-    if (!$doc->loadXML($xmlContent)) {
-        // Si le chargement échoue, récupérer les erreurs et les renvoyer
-        $errors = libxml_get_errors();
-        $errorMessages = [];
-        foreach ($errors as $error) {
-            $errorMessages[] = $error->message;
-        }
-        libxml_clear_errors();
-        return implode("\n", $errorMessages);
+    // Charger le contenu du fichier DTD
+    $contenuDtd = file_get_contents($dtdFichier);
+    if ($contenuDtd === false) {
+        return "Échec du chargement du fichier DTD.";
     }
 
-    // Charger le fichier DTD
-    if (!$doc->validateOnParse) {
-        $doc->load($dtdFile);
+    // Créer un fichier temporaire pour stocker le contenu du DTD
+    $fichierDtdTemp = tempnam(sys_get_temp_dir(), 'dtd');
+    if ($fichierDtdTemp === false) {
+        return "Impossible de créer un fichier DTD temporaire.";
     }
 
-    // Valider le document par rapport au DTD
+    // Écrire le contenu du DTD dans le fichier temporaire
+    if (file_put_contents($fichierDtdTemp, $contenuDtd) === false) {
+        unlink($fichierDtdTemp);
+        return "Impossible d'écrire le fichier DTD temporaire.";
+    }
+
+    // Valider le document par rapport au fichier DTD temporaire
     if ($doc->validate()) {
+        unlink($fichierDtdTemp); // Supprimer le fichier DTD temporaire
         return true;
     } else {
-        // Si la validation échoue, récupérer les erreurs et les renvoyer
-        $errors = libxml_get_errors();
-        $errorMessages = [];
-        foreach ($errors as $error) {
-            $errorMessages[] = $error->message;
+        // Si la validation échoue, collectez et retournez les messages d'erreur
+        $erreurs = libxml_get_errors();
+        $messagesErreur = [];
+        foreach ($erreurs as $erreur) {
+            $messagesErreur[] = $erreur->message;
         }
         libxml_clear_errors();
-        return implode("\n", $errorMessages);
+        unlink($fichierDtdTemp); // Supprimer le fichier DTD temporaire
+        return implode("\n", $messagesErreur);
     }
 }
 
 // Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifier si un fichier a été sélectionné
-    if (isset($_FILES['file_a_ajouter']) && $_FILES['file_a_ajouter']['error'] === UPLOAD_ERR_OK) {
-        // Définir le répertoire de téléchargement sur le serveur
-        $uploadDirectory = '../DATA/';
-        // Récupérer le nom du fichier
-        $fileName = $_FILES['file_a_ajouter']['name'];
-        // Récupérer l'extension du fichier
-        $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+    if (isset($_FILES['xml_a_ajouter']) && isset($_FILES['jpg_a_ajouter'])) {
+        if ($_FILES['xml_a_ajouter']['error'] === UPLOAD_ERR_OK && $_FILES['jpg_a_ajouter']['error'] === UPLOAD_ERR_OK) {
+            // Obtenir les noms des fichiers
+            $nomFichierXML = pathinfo($_FILES['xml_a_ajouter']['name'], PATHINFO_FILENAME);
+            $nomFichierJPG = pathinfo($_FILES['jpg_a_ajouter']['name'], PATHINFO_FILENAME);
 
-        // Vérifier si l'extension est autorisée (jpg ou xml)
-        if ($fileExtension == 'jpg' || $fileExtension == 'xml') {
-            // Récupérer le chemin temporaire du fichier
-            $fileTmpName = $_FILES['file_a_ajouter']['tmp_name'];
-            // Définir le chemin final du fichier sur le serveur
-            $targetFilePath = $uploadDirectory . $fileName;
-
-            // Si c'est un fichier XML, vérifier sa validité par rapport au schéma DTD
-            if ($fileExtension == 'xml') {
-                // Charger le fichier XML
-                $xmlContent = file_get_contents($fileTmpName);
-
-                // Valider le fichier XML par rapport au DTD
-                $validationResult = xml_validate_against_dtd($xmlContent);
-                if ($validationResult !== true) {
-                    $message = "Le fichier XML ne respecte pas le schéma DTD spécifié : \n$validationResult";
-                } else {
-                    // Déplacer le fichier du répertoire temporaire vers le répertoire de téléchargement
-                    if (move_uploaded_file($fileTmpName, $targetFilePath)) {
-                        $message = "Le fichier $fileName a été téléchargé avec succès ! 💁🏻‍♀️👌🏻";
-                    } else {
-                        $message = "Une erreur est survenue lors du téléchargement du fichier. 🤦🏻‍♀️";
-                    }
-                }
+            // Vérifier si les noms de fichier sont identiques
+            if ($nomFichierXML !== $nomFichierJPG) {
+                $message = "Les noms de fichier JPG et XML ne correspondent pas. 🙅🏻‍♀️Veuillez choisir des fichiers avec des noms identiques.";
             } else {
-                // Pour les fichiers JPG, déplacer simplement le fichier
-                if (move_uploaded_file($fileTmpName, $targetFilePath)) {
-                    $message = "Le fichier $fileName a été téléchargé avec succès ! 💁🏻‍♀️👌🏻";
+                // Obtenir les chemins temporaires des fichiers
+                $cheminFichierTempXML = $_FILES['xml_a_ajouter']['tmp_name'];
+                $cheminFichierTempJPG = $_FILES['jpg_a_ajouter']['tmp_name'];
+
+                // Définir le répertoire de téléchargement sur le serveur
+                $repertoireTelechargement = '../DATA/';
+
+                // Définir les chemins finaux des fichiers sur le serveur
+                $cheminFichierFinalXML = $repertoireTelechargement . $nomFichierXML;
+                $cheminFichierFinalJPG = $repertoireTelechargement . $nomFichierJPG;
+
+                // Valider et déplacer le fichier XML
+                if (move_uploaded_file($cheminFichierTempXML, $cheminFichierFinalXML)) {
+                    // Lire le contenu du fichier XML
+                    $contenuXml = file_get_contents($cheminFichierFinalXML);
+
+                    // Valider le fichier XML par rapport au schéma DTD
+                    $resultatValidation = xml_valider_contre_dtd($contenuXml);
+                    if ($resultatValidation !== true) {
+                        // Supprimer le fichier XML et afficher un message d'erreur
+                        unlink($cheminFichierFinalXML);
+                        $message = "Le fichier XML ne respecte pas le schéma DTD spécifié : \n$resultatValidation";
+                    } else {
+                        // Valider et déplacer le fichier JPG
+                        if (move_uploaded_file($cheminFichierTempJPG, $cheminFichierFinalJPG)) {
+                            $message = "Les fichiers ont été téléchargés avec succès ! 💁🏻‍♀️👌🏻";
+                        } else {
+                            // Supprimer le fichier XML et afficher un message d'erreur
+                            unlink($cheminFichierFinalXML);
+                            $message = "Une erreur est survenue lors du téléchargement du fichier JPG. 🤦🏻‍♀️";
+                        }
+                    }
                 } else {
-                    $message = "Une erreur est survenue lors du téléchargement du fichier. 🤦🏻‍♀️";
+                    $message = "Une erreur est survenue lors du téléchargement du fichier XML. 🤦🏻‍♀️";
                 }
             }
         } else {
-            $message = "L'extension du fichier n'est pas autorisée. Veuillez télécharger un fichier avec une extension .jpg ou .xml. 🚫";
+            $message = "Une erreur est survenue lors du téléchargement des fichiers. 🤦🏻‍♀️";
         }
     } else {
-        $message = "Aucun fichier n'a été envoyé. 🤷🏻‍♀️";
+        $message = "Veuillez sélectionner à la fois un fichier XML et un fichier JPG. 🚫";
     }
 } else {
     $message = "Aucune requête POST reçue.";
