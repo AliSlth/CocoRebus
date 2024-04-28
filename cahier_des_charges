@@ -1,7 +1,15 @@
 # Cahier des charges 
 
 # Description du projet :
-Le projet CocoRebus a été réalisé dans le cadre du cours de Programmation WEB au semestre 2.
+Notre projet CocoRebus a été réalisé dans le cadre du cours de Programmation WEB au semestre 2.
+
+* Besoins du projet 
+L’application doit permettre de : 
+• insérer/supprimer des fichiers en vérifiant notamment la conformité du format (DTD XML)
+• rechercher des fichiers selon différents critères à définir comme la langue, les annotations disponibles,
+l’année, les temps d’écriture, type de consigne, etc.
+• visualiser les fichiers de différentes manières à définir
+• importer des fichiers décrits dans d’autres formats
 
 # Répartition des tâches: 
 
@@ -14,5 +22,8 @@ Page de gestion
 * Alissa
 Page d'application 
 
+
+
 Ce qui a été réalisé : 
+
 
