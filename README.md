@@ -64,18 +64,23 @@ La page d'acceuil se compose de deux div (partie en haut le logo de notre projet
 
 La première button en haut permet aux utilisateurs d'accéder à la page de connexion. L'autre en bas sert à sauter directement à la page d'application. 
 
-### Sauter aux pages différentes 
+
+### se connecter 
 Fonctionnement: cliquer sur les bouttons 
 
 <form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
 se connecter: dans "vues/page_de_connexion.php" se trouve la page 
+
+
+### consulter sans se connecter 
+Fonctionnement: cliquer sur les bouttons 
+
+<form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
 consulter sans connexion: dans "vues/application.php" se trouve la page 
 
 
 
-
 ## Page de connexion
-
 
 
 La page de connexion se compose de trois parties: le logo, les deux boîtes de saisie et une boutton de connexion. 
@@ -106,13 +111,90 @@ Fonctionnement: Dès que les données saisies sont envoyées et stockées dans d
 
 
 ## Page de consultation
-à compléter 
-```modeles/logout.php```
+
+
+La page de consultation se compose de deux div: le logo et les choix d'opération. 
+
+Si l'utilisateur clique sur le bouton de Gérer les fichiers, on a l'accès à la page de filtrage dans le script "application.php". 
+Si l'utilisateur clique sur le bouton de Consulter les données, on a l'accès à la page de consultation dans le script "page_de_gestion.php"
+Si l'utilsateur clique sur le bouton de Déconnecter, on a l'accès à la page d'acceuil dans le script "logout.php". 
+
+
+### Gérer les fichiers 
+Fonctionnement: cliquer sur le boutton
+
+<form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
+se connecter: dans "vues/application.php" se trouve la page 
+
+
+### Consulter les données 
+Fonctionnement: cliquer sur le boutton 
+
+<form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
+consulter les données: dans "vues/page_de_gestion.php" se trouve la page 
+
 
 ### Se déconnecter
+Fonctionnement: cliquer sur le boutton
+
+<form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
+se déonnecter: dans "module/logout.php" qui nettoye les annciennes données saisies de login et renvoie à la page d'acceuil.  
+
+
+
 
 ## Page de gestion
-* est-ce que tu as corrigé les bugs pour l'ajout du texte ?
+
+
+La page de gestion est structurée autour de deux div principaux contenus dans la boîte d'opération <div class="bas"> : la partie gauche est dédiée à l'opération d'ajout de fichiers, tandis que la partie droite concerne la suppression de fichiers.
+
+La partie gauche permet à l'utilisateur d'envoyer une paire de fichiers (au format JPG et XML) vers le serveur. La partie droite, quant à elle, permet de supprimer des fichiers du serveur. Toutes les deux fonctions permettent de mettre à jour les métadonnées dans la base de données.
+
+
+### Ajouter une paire de fichiers (au format JPG et XML)
+Fonctionnement: Ajouter une paire de fichiers de même nom au format JPG et XML. 
+
+Dans la boîte d'ajout, deux champs de type "file" sont présents. À l'aide de contraintes spécifiées avec l'attribut "accept", les deux barres d'ajout de fichiers n'acceptent que les fichiers au format XML et JPEG.
+
+
+### Supprimer des fichiers (au format JPG et XML) 
+Fonctionnement: Supprimer n'importe quel fichier du serveur. 
+
+
+### Vérifier les noms des fichiers ajoutés 
+Fonctionnement: Lorsque l'utilisateur clique sur le bouton "Submit", le système vérifie immédiatement les noms des fichiers pour déterminer s'ils sont identiques.
+
+Si les noms sont identiques, les deux fichiers seront ajoutés sur le serveur;  sinon l'opération échoue. 
+
+
+### Suppression des anciennes données dans la base de données
+Fonctionnement: Avant de stocker les nouvelles métadonnées des fichiers XML, toutes les anciennes données sont supprimées de la base de données pour garantir l'actualité des informations.
+
+Dans l'élement d'Url, on place le script "module/supprimer_BaseDeDonnee.php" qui accède à la base de données et supprime toutes les anciennes données dans le tableau de "info_xml" qui stocke les métadonnées suivantes des fichiers XML: ID, Niveau, Élève, Classe, Version, Année, Corpus,Temps,InterventionEn, Normalisation. 
+
+
+### Traitement des fichiers XML
+Fonctionnement: Après l'ajout des fichiers, tous les fichiers au format XML sont parcourus afin de retirer les métadonnées et de les stocker dans la base de données.
+
+* **Pour ID, Niveau, Élève, Classe, Version, Année
+Expression réguière utilisée: /<title>(([^-]+)-([^-]+)-([^-]+)-([^-]+)-([^-]+)-([^<]+)-([^<]+))<\/title>/
+
+* **Pour Corpus 
+Expression régulière utilisée: /<bibl>([^<\s(]+)\s*\([^<]*<\/bibl>/
+
+* **Pour Temps
+L'élément et l'attribue que l'on chercheent: <mod seq=>...</mod>
+
+Si l'élément "T3" est rencontré, sa valeur est directement ajoutée comme valeur de "Temps". Si "T3" n'est pas trouvé mais que "T2" est rencontré, alors la valeur de "Temps" est définie comme "T2". Si ni "T3" ni "T2" ne sont trouvés, la valeur de "Temps" est remplie avec "T1".
+
+* **Pour InterventionEn et Normalisation
+L'élément et l'attribue que l'on chercheent: <note resp>...</note>
+
+Si l'élément "P" est rencontré, alors la valeur de "Intervention" est automatiquement définie comme "Oui". Sinon, elle est définie comme "Non".
+
+Si l'élément "chercheur" est rencontré, alors la valeur de "Intervention" est automatiquement définie comme "Oui". Sinon, elle est définie comme "Non".
+
+
 
 
 ## Page d'application 

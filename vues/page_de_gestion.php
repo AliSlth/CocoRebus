@@ -5,36 +5,39 @@
 <head>
     <meta charset="utf-8" />
     <title> page de traitement de fichiers </title>
-    <link rel="stylesheet" href="../css/page_de_gestion.css" />
-    <script type="text/javascript" src="../scripts/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/page_de_gestion.css" />
+    <script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script>
 </head>
 
 
 <body>
     <section class="contenu">
         <div calss="haut">
-            <td><img id="bus" src="../medias/bus.png"></td>
+            <td><img id="bus" src="bus.png"></td>
         </div>
 
         <div class="bas">
             <p>
             <div class="form_ajout">
-                <form action="../modeles/ajouter_un_fichier.php" method="post" enctype="multipart/form-data">
+                <form action="module/ajouter_un_fichier.php" method="post" enctype="multipart/form-data">
                     <div class="form_group">
-                        <label for="file_a_ajouter" class="label_select">Déposer fichier :</label>
-                        <input type="file" name="file_a_ajouter" id="file_a_ajouter" class="select_ajout">
+                        <label for="file_a_ajouter" class="label_select">Déposer XML :</label>
+                        <input type="file" name="xml_a_ajouter" accept="image/jpeg" class="select_ajout1">
+                        <label for="file_a_ajouter" class="label_select">Déposer JPG :</label>
+                        <input type="file" name="jpg_a_ajouter" accept="text/xml" class="select_ajout2">
                     </div>
                     <input type="submit" name="submit" value="submit" class="button">
                 </form>
             </div>
             </p>
 
+
             <p>
             <div class="form_supprime">
-                <form action="../modeles/supprimer_un_fichier.php" method="post">
+                <form action="module/supprimer_un_fichier.php" method="post">
                     <div class="form_group">
                         <label for="fichier_a_supprimer" class="label_select">Supprimer fichier: </label>
-                        <select name="fichier_a_supprimer" id="fichier_a_supprimer" class="select_supprime">
+                        <select name="fichier_a_supprimer" id="fichier_a_supprimer" class="select_supprime" multiple>
                             <?php
                             //chemain du repertoire a parcourir 
                             $repertoire = './DATA/';
@@ -93,7 +96,7 @@
                         var uploadedFile = $('#file_a_ajouter')[0].files[0];
                         if (uploadedFile.type === 'text/xml') {
                             $.ajax({
-                                url: '../modeles/supprimer_BaseDeDonnee.php',
+                                url: 'module/supprimer_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
@@ -101,7 +104,7 @@
                             });
 
                             $.ajax({
-                                url: '../modeles/ajouter_BaseDeDonnee.php',
+                                url: 'module/ajouter_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
@@ -123,22 +126,26 @@
                     success: function (response) { // Fonction de succès
                         alert(response); // Afficher la réponse dans une boîte de dialogue
 
-                        //une fois le fichier ajoute avec succes, executer les autres scripts
-                        $.ajax({
-                            url: '../modeles/supprimer_BaseDeDonnee.php',
-                            type: 'POST',
-                            success: function (response) {
-                                console.log(response); // Afficher la réponse dans la console
-                            }
-                        });
+                        // Check if the uploaded file is XML
+                        var uploadedFile = $('#file_a_ajouter')[0].files[0];
+                        if (uploadedFile.type === 'text/xml') {
+                            //une fois le fichier ajoute avec succes, executer les autres scripts
+                            $.ajax({
+                                url: 'module/supprimer_BaseDeDonnee.php',
+                                type: 'POST',
+                                success: function (response) {
+                                    console.log(response); // Afficher la réponse dans la console
+                                }
+                            });
 
-                        $.ajax({
-                            url: '../modeles/ajouter_BaseDeDonnee.php',
-                            type: 'POST',
-                            success: function (response) {
-                                console.log(response); // Afficher la réponse dans la console
-                            }
-                        });
+                            $.ajax({
+                                url: 'module/ajouter_BaseDeDonnee.php',
+                                type: 'POST',
+                                success: function (response) {
+                                    console.log(response); // Afficher la réponse dans la console
+                                }
+                            });
+                        }
                     }
                 });
             });
