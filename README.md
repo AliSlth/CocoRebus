@@ -351,10 +351,14 @@ Ici, on cache les éléments entre <teiHeader>, on enlève les éléments <del> 
 * En cliquant sur le titre en haut à gauche,  le script renvoie à la ```page_de_consultation.php```. Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée avec la valeur ```true``` uniquement lorsque l'utilisateur s'est connecté. 
 Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec un  ```header```
 
+### Sécurité pour protéger les pages page_de_consultation.php et page_de_gestion.php
+Si l'utilisateur accède à ces pages directement via le lien, il est redirigé vers la page d'accueil qui lui propose de se connecter. 
+Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée avec la valeur ```true``` uniquement lorsque l'utilisateur s'est connecté. 
+Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec un  ```header```
 
 #### Améliorations
 
 * Pour la partie d'options d'affichage sur textes : afficher les commentaires à l'endroit où il a été réellement ajouté sur la copie
 * L'affichage des images ne gère pas le cas où il y a plusieurs images.
-  
+* L'ajout des fichiers marche pour des fichiers qui ont exactement le même nom 
 
