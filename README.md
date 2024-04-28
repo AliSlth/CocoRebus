@@ -70,13 +70,13 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 
 ## Page d'application 
 
-```
+
 La page d’application est constituée de deux div (partie gauche et partie droite).
 
 La partie gauche gère tout ce qui est affichage du texte, des options de textes, affichage des images. Les affichages sont disponibles avec deux façons, php, lorsqu’on envoie un formulaire on envoie la requête, et lorsqu’on clique sur un élément mis sur écoute, on envoie la requête AJAX pour exécuter le php. On a 3 formulaires qui permettent d’accéder aux textes: le premier qui permet de rechercher un texte par le nom grâce à une barre de recherche, le deuxième de sélectionner un texte parmi une liste contenue dans une barre déroulante, et le dernier qui est un filtre qui trie et renvoie les textes qui correspondent aux critères sélectionnés.
 
 La partie droite va servir à rechercher des textes selon des critères dans la base de données et c’est ici qu’on pourra choisir le texte.
-```
+
 
 ### Rechercher un texte dans une barre de recherche 
 Dans un élément ```dataset```, on place le script ```controleurs/listeFichiers.php``` qui explore le répertoire spécifique (DATA), extrait les noms des fichiers XML qui s'y trouvent, et affiche ces fichiers comme options dans un formulaire pour sélectionner un fichier XML. L'utilisateur peut insérer le début du nom du texte et le nom complet est suggéré. Le formulaire est géré par le bouton ayant  ```l'id "#filtrernom" ```
