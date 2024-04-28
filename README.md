@@ -59,6 +59,7 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 
 ## Page d'accueil
 à compléter 
+
 ## Page de connexion
 à compléter 
 
@@ -67,6 +68,9 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 ```modeles/logout.php```
 
 ### Se déconnecter
+
+## Page de gestion
+* est-ce que tu as corrigé les bugs pour l'ajout du texte ?
 
 
 ## Page d'application 
@@ -80,12 +84,18 @@ La partie droite va servir à rechercher des textes selon des critères dans la 
 
 
 ### Rechercher un texte dans une barre de recherche 
+Fonctionnement : Entrer le nom du texte (entier ou partiel), la barre de recherche suggère le nom entier du fichier. Cliquer sur le fichier voulu puis sur le bouton Rechercher.
+
 Dans un élément ```dataset```, on place le script ```controleurs/listeFichiers.php``` qui explore le répertoire spécifique (DATA), extrait les noms des fichiers XML qui s'y trouvent, et affiche ces fichiers comme options dans un formulaire pour sélectionner un fichier XML. L'utilisateur peut insérer le début du nom du texte et le nom complet est suggéré. Le formulaire est géré par le bouton ayant  ```l'id "#filtrernom" ```
 
-### Afficher les textes (options disponibles) dans un menu déroulant 
+### Afficher les textes (options disponibles) dans un sélecteur déroulant
+Fonctionnement : Cliquer sur la barre du sélecteur déroulant et sélectionner un texte puis appuyer sur Rechercher.
+
 Dans un élément ```select```, on place le script ```controleurs/listeFichiers.php``` qui explore le répertoire spécifique (DATA), extrait les noms des fichiers XML qui s'y trouvent, et affiche ces fichiers comme options dans un formulaire pour sélectionner un fichier XML. Le formulaire est géré par le bouton ayant  ```l'id "#filtretext" ```
 
 ### Filtrer les textes dans la base de données selon des critères
+Fonctionnement : Cliquer sur le sélecteur déroulant du critère à filtrer puis cliquer sur Filtrer. Plusieurs choix sont possibles.
+
 * **Pour les valeurs possibles de filtre (voir le div <div class = "selectedfilters">)** 
 On se connecte à la  base de données et grâce à une requête on extrait les valeurs possibles UNIQUES. On fait ça pour chaque colonne dans la base de données (Eleve, Classe, Niveau, Année…)
 ex. de requête pour extraires les valeurs possibles du filtre sur le Niveau```SELECT DISTINCT Niveau from info_xml```. Les résultats sont affichés dans une liste déroulante HTML de type ```<select>```.
@@ -130,6 +140,8 @@ Comme pour l'affichage du titre, on a plusieurs méthodes assez similaires.
 
 
 ### Affichage du texte au format JPG 
+Fonctionnement : Cliquer sur le bouton afficher la version image.
+
 Même principe que l'affichage du titre et du texte,  dans un premier temps on récupère l'id / valeur du champ sélectionné / nom du fichier puis on construit le chemin complet du fichier à partir des informations extraites. 
 
 * Dans “scripts/main.js” : On écoute l’élément ayant l’**id** “filtrernom” (càd le bouton rechercher à côté de la barre de navigation).
@@ -144,6 +156,8 @@ Même principe que l'affichage du titre et du texte,  dans un premier temps on r
 L'image est chargée dans un div dédié à la zone d'affichage de l'image, d'abord mise en tant que ```hidden``` par défaut. Il suffit d'appuyer sur le bouton **Afficher la version image** qui sert à afficher ou masquer grâce à un ```toggle switch```. 
 
 ### Télécharger la version JPG ou XML du texte
+Fonctionnement : Cliquer sur le bouton "Télécharger au format...".
+
 Même principe que l'affichage du titre et du texte ou affichage de la version JPG  dans un premier temps on récupère l'id / valeur du champ sélectionné / nom du fichier puis on construit le chemin complet du fichier à partir des informations extraites. 
 
 * Dans “scripts/main.js” : On écoute l’élément ayant l’**id** “filtrernom” (càd le bouton rechercher à côté de la barre de navigation).
@@ -163,6 +177,8 @@ Puis on affiche un boutton de téléchargement tel que :
 
 
 ### Afficher le texte selon plusieurs options d'affichage 
+Fonctionnement : Cocher une option après l'autre. 
+
 Dans "scripts/main.js"
 * En mettant sur écoute les options d'affichage avec jQuery, on peut afficher la version 1, la version Enseignant, la version Chercheur ou les deux.
 * Le texte original est stocké dans une variable à chaque rechargement du texte (recherche avec la barre de recherche ou par sélection de texte par la liste complète ou clic dans le tableau). À chaque fois qu'on clique sur une option d'affichage, on traite le texte original et affiche le texte modifié dans la zone dédiée à l'affichage du texte.
@@ -208,7 +224,7 @@ Ici, on cache les éléments entre <teiHeader>, on enlève les éléments <del> 
 #### Autre
 ### Retour arrière vers la page de consultation (utilisateur connecté) ou d'accueil (si non connecté)
 
-* En cliquant sur le logo,  le script renvoie à la ```page_de_consultation.php```. Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée uniquement lorsque l'utilisateur s'est connecté. 
+* En cliquant sur le logo,  le script renvoie à la ```page_de_consultation.php```. Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée avec la valeur ```true``` uniquement lorsque l'utilisateur s'est connecté. 
 Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec un  ```header```
 
 Zoomer sur l'image 
@@ -217,4 +233,6 @@ Connexion à la base de données
 #### Améliorations
 
 * Pour la partie d'options d'affichage sur textes : afficher les commentaires à l'endroit où il a été réellement ajouté sur la copie
+* L'affichage des images ne gère pas le cas où il y a plusieurs images.
+  
 
