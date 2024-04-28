@@ -58,11 +58,52 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 ## Fonctions 
 
 ## Page d'accueil
-à compléter 
+
+
+La page d'acceuil se compose de deux div (partie en haut le logo de notre projet et parite en bas les deux buttons des opérations. 
+
+La première button en haut permet aux utilisateurs d'accéder à la page de connexion. L'autre en bas sert à sauter directement à la page d'application. 
+
+### Sauter aux pages différentes 
+Fonctionnement: cliquer sur les bouttons 
+
+<form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
+se connecter: dans "vues/page_de_connexion.php" se trouve la page 
+consulter sans connexion: dans "vues/application.php" se trouve la page 
+
+
+
 
 ## Page de connexion
-à compléter 
-* est-ce que tu as pu rajouter une variable qui vérifie bien que l'utilisateur doit taper quelque chose avant de valider ?
+
+
+
+La page de connexion se compose de trois parties: le logo, les deux boîtes de saisie et une boutton de connexion. 
+
+Dès que l'utilisateur clique la boutton de connexion, les données saisies dans la boîte du compte de login et celle du mot de passe seront récupérées. Et ils seront transmises dans le module "verifLogin.php" qui permet de comparer les données saisies avec les données stockées dans la base de données à l'aide du module d'accès à la base de données: "connexion.php"
+
+
+### saisie les informations de connexion 
+Fonctionnement: taper les informations de connexion dans la boîte de compte de login et la boîte de mot de passe. 
+
+On tape les informations de login, et on clique sur le bouton de se connecter pour envoyer les données de la part de l'utilsateur au serveur. 
+
+
+### comparer les données saisies avec les données de la base de données
+Fonctionnement: Dès que les données saisies de la part de l'utilisateur sont envoyées au serveur, la variable $login conserve les données du compte, la variable mdp conserve les données du mot de passe. À l'aide de ajax, on ouvre ensuite le script "module/veriflogin.php" qui gère la vérification du mot de passe et son compte correspondant. 
+
+Si le mot de passe saisi peut être retrouvé dans la base de données et les données de login saisies correspond bien à son login sur la base de données, une variable renvoyée au script principal de cette page, et ce qui permet de sauter à la page de consultation dans "vues/page_de_consultation.php"
+
+Si le mot de passe saisi ne peut pas être retrouvé dans la base de données, une autre variable renvoyée au script principal de cette page, et ce qui permet de s'afficher une phrase "Mot de passe incorrect" en bas de la boîte d'opération. 
+
+Si aucune information sont repérée, une nouvelle variable renvoyée au script principal de cette page, et ce qui permet de s'afficher une phrase "Login inexistant" en bas de la boîte d'opération. 
+
+
+### connecter automatiquement à la base de donnée
+Fonctionnement: Dès que les données saisies sont envoyées et stockées dans des variables au script "verifLogin.php", il connecte automatique au scirpt "connexion.php" dans module, qui permet d'accéder à la base de données. 
+
+
+
 
 ## Page de consultation
 à compléter 
