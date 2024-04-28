@@ -62,6 +62,7 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 
 ## Page de connexion
 à compléter 
+* est-ce que tu as pu rajouter une variable qui vérifie bien que l'utilisateur doit taper quelque chose avant de valider ?
 
 ## Page de consultation
 à compléter 
