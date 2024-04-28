@@ -360,5 +360,7 @@ Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec
 
 * Pour la partie d'options d'affichage sur textes : afficher les commentaires à l'endroit où il a été réellement ajouté sur la copie
 * L'affichage des images ne gère pas le cas où il y a plusieurs images.
-* L'ajout des fichiers marche pour des fichiers qui ont exactement le même nom 
+* L'ajout des fichiers marche seulement pour des fichiers qui ont exactement le même nom
+* DTD
+  
 
