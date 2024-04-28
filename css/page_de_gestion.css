@@ -23,8 +23,8 @@ body {
     opacity: 0.95;
     padding: 80px 80px;
     border-radius: 50%;
-    width: 210px;
-    height: 210px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     top: 45%;
     left: 50%;
@@ -51,7 +51,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: -140px;
+    margin-right: -160px;
     margin-top: 30px;
 }
 
@@ -61,12 +61,12 @@ img {
     margin: 0 10px;
     display: flex;
     align-items: right;
-    margin: 0 25px;
+    margin: 0 10px;
     background-color: rgb(245, 248, 211);
-    padding: 30px 30px;
+    padding: 40px 40px;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: relative;
     transform: translate(-50%, -50%);
 
@@ -77,12 +77,12 @@ img {
     margin: 0 10px;
     display: flex;
     align-items: right;
-    margin: 0 25px;
+    margin: 0 10px;
     background-color: rgb(245, 248, 211);
-    padding: 30px 30px;
+    padding: 40px 40px;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: relative;
     transform: translate(-50%, -50%);
 }
@@ -92,7 +92,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     flex-direction: column;
     margin: 15px;
 
@@ -105,12 +105,12 @@ img {
     font-family: "M PLUS 1 Code", monospace;
 }
 
-.select_ajout {
+.select_ajout1 {
     display: block;
     align-items: center;
     margin: 5px;
-    margin-top: -8px;
-    margin-bottom: 25px;
+    margin-top: -10px;
+    margin-bottom: 3px;
     padding: 8px 8px;
     width: 15;
     height: 5;
@@ -119,12 +119,30 @@ img {
     cursor: pointer;
     font-size: 12px;
     position: relative;
+    max-width: 80px;
 }
+
+.select_ajout2 {
+    display: block;
+    align-items: center;
+    margin: 5px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    padding: 8px 8px;
+    width: 15;
+    height: 5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    position: relative;
+    max-width: 80px;
+}
+
 
 .select_supprime {
     display: block;
     align-items: center;
-    background-color: aliceblue;
     margin: 10px;
     margin-top: 0;
     margin-bottom: 33px;
@@ -136,6 +154,7 @@ img {
     cursor: pointer;
     font-size: 12px;
     position: relative;
+    max-width: 80px;
 }
 
 .button {
