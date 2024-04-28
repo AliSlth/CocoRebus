@@ -266,7 +266,7 @@ Ici, on cache les éléments entre <teiHeader>, on enlève les éléments <del> 
 #### Autre
 ### Retour arrière vers la page de consultation (utilisateur connecté) ou d'accueil (si non connecté)
 
-* En cliquant sur le logo,  le script renvoie à la ```page_de_consultation.php```. Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée avec la valeur ```true``` uniquement lorsque l'utilisateur s'est connecté. 
+* En cliquant sur le titre en haut à gauche,  le script renvoie à la ```page_de_consultation.php```. Au début de script est ajouté une vérification de la valeur ```connected``` qui est initialisée avec la valeur ```true``` uniquement lorsque l'utilisateur s'est connecté. 
 Si la valeur == false, l'utilisateur est redirigé vers la page_accueil.php avec un  ```header```
 
 Zoomer sur l'image 
