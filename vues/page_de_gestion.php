@@ -1,29 +1,37 @@
+<?php 
+session_start();
+if(!isset($_SESSION['connected']) || $_SESSION['connected'] === false) {
+    header('Location: ../page_accueil.php');
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 
 <html>
-
 <head>
     <meta charset="utf-8" />
-    <title> page de traitement de fichiers </title>
-    <link rel="stylesheet" href="css/page_de_gestion.css" />
-    <script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script>
+    <title> Page de traitement des fichiers </title>
+    <link rel="stylesheet" href="../css/page_de_gestion.css" />
+    <script type="text/javascript" src="../scripts/jquery-3.7.1.min.js"></script>
 </head>
 
 
 <body>
     <section class="contenu">
         <div calss="haut">
-            <td><img id="bus" src="bus.png"></td>
+            <td><img id="bus" src="../medias/bus.png"></td>
         </div>
 
         <div class="bas">
             <p>
             <div class="form_ajout">
-                <form action="module/ajouter_un_fichier.php" method="post" enctype="multipart/form-data">
+                <form action="../modeles/ajouter_un_fichier.php" method="post" enctype="multipart/form-data">
                     <div class="form_group">
-                        <label for="file_a_ajouter" class="label_select">Déposer XML :</label>
-                        <input type="file" name="xml_a_ajouter" accept="image/jpeg" class="select_ajout1">
                         <label for="file_a_ajouter" class="label_select">Déposer JPG :</label>
+                        <input type="file" name="xml_a_ajouter" accept="image/jpeg" class="select_ajout1">
+                        <label for="file_a_ajouter" class="label_select">Déposer XML :</label>
                         <input type="file" name="jpg_a_ajouter" accept="text/xml" class="select_ajout2">
                     </div>
                     <input type="submit" name="submit" value="submit" class="button">
@@ -34,7 +42,7 @@
 
             <p>
             <div class="form_supprime">
-                <form action="module/supprimer_un_fichier.php" method="post">
+                <form action="../modeles/supprimer_un_fichier.php" method="post">
                     <div class="form_group">
                         <label for="fichier_a_supprimer" class="label_select">Supprimer fichier: </label>
                         <select name="fichier_a_supprimer" id="fichier_a_supprimer" class="select_supprime" multiple>
@@ -96,7 +104,7 @@
                         var uploadedFile = $('#file_a_ajouter')[0].files[0];
                         if (uploadedFile.type === 'text/xml') {
                             $.ajax({
-                                url: 'module/supprimer_BaseDeDonnee.php',
+                                url: '../modeles/supprimer_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
@@ -104,7 +112,7 @@
                             });
 
                             $.ajax({
-                                url: 'module/ajouter_BaseDeDonnee.php',
+                                url: '../modeles/ajouter_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
@@ -131,7 +139,7 @@
                         if (uploadedFile.type === 'text/xml') {
                             //une fois le fichier ajoute avec succes, executer les autres scripts
                             $.ajax({
-                                url: 'module/supprimer_BaseDeDonnee.php',
+                                url: '../modeles/supprimer_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
@@ -139,7 +147,7 @@
                             });
 
                             $.ajax({
-                                url: 'module/ajouter_BaseDeDonnee.php',
+                                url: '../modeles/ajouter_BaseDeDonnee.php',
                                 type: 'POST',
                                 success: function (response) {
                                     console.log(response); // Afficher la réponse dans la console
