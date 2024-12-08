@@ -1,11 +1,11 @@
 <?php
 
 
-//connexion a la base de donne
+//connexion a la base de données
 $servername = "localhost";
-$bdname = "CocoRebus";
-$username = "xinyi";  // a remplire
-$motdepass = "xinyiDU47!"; //a remplire 
+$bdname = "";
+$username = "";  // a remplir
+$motdepass = ""; //a remplir
 
 $message = "";
 
