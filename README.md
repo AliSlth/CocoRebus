@@ -60,15 +60,16 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 ## Page d'accueil
 
 
-La page d'acceuil se compose de deux div (partie en haut le logo de notre projet et parite en bas les deux buttons des opérations. 
+La page d'accueil se compose de deux <div>
 
-La première button en haut permet aux utilisateurs d'accéder à la page de connexion. L'autre en bas sert à sauter directement à la page d'application. 
+Le premier bouton en haut permet aux utilisateurs d'accéder à la page de connexion.
 
 
 ### se connecter 
-Fonctionnement: cliquer sur les bouttons 
+Fonctionnement: cliquer sur les boutons 
 
 <form action="URL"> permet d'envoyer les données du formulaire lorsqu'il est soumis.
+   
 se connecter: dans "vues/page_de_connexion.php" se trouve la page 
 
 
@@ -85,13 +86,13 @@ consulter sans connexion: dans "vues/application.php" se trouve la page
 
 La page de connexion se compose de trois parties: le logo, les deux boîtes de saisie et une boutton de connexion. 
 
-Dès que l'utilisateur clique la boutton de connexion, les données saisies dans la boîte du compte de login et celle du mot de passe seront récupérées. Et ils seront transmises dans le module "verifLogin.php" qui permet de comparer les données saisies avec les données stockées dans la base de données à l'aide du module d'accès à la base de données: "connexion.php"
+Dès que l'utilisateur clique le boutton de connexion, les données saisies dans la boîte du compte de login et celle du mot de passe seront récupérées. Et ils seront transmises dans le module "verifLogin.php" qui permet de comparer les données saisies avec les données stockées dans la base de données à l'aide du module d'accès à la base de données: "connexion.php"
 
 
 ### saisie les informations de connexion 
-Fonctionnement: taper les informations de connexion dans la boîte de compte de login et la boîte de mot de passe. 
+Fonctionnement: taper les informations de connexion dans la boîte de compte de login et le champ dédié au mot de passe. 
 
-On tape les informations de login, et on clique sur le bouton de se connecter pour envoyer les données de la part de l'utilsateur au serveur. 
+On tape les informations de login, et on clique sur le bouton de se connecter pour envoyer les données de la part de l'utilisateur au serveur. 
 
 
 ### comparer les données saisies avec les données de la base de données
