@@ -44,7 +44,7 @@ Le projet E-Calm vise à gérer un corpus de productions scolaires allant du CP 
 
 ### Accès au site
 * url : i3l.univ-grenoble-alpes.fr/~sounalaa/page_accueil.php
-* identifiants : user : xinyi / mdp : 1234
+* identifiants : demandez à créer un identifiant
 * navigateur : Mozilla 
 
 ### Technologies utilisées : 
